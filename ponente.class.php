@@ -215,10 +215,14 @@ $this->id_ponente = $id_ponente;
      * @return  arreglo
      */ 
     public function read(){
+        $this->connect();
         $sql = "SELECT p.id_ponente,concat(p.nombre,' ',p.primer_apellido) as nombre,t.tipo,p.fotografia from ponente p inner join tipo t on p.id_tipo=t.id_tipo;";
-        $rs = $this->query($sql);
+        $stmt = $this->con->prepare($sql);
+        $stmt -> execute();
+        //$rs = $this->query($sql);
 
-        $datos = $rs->fetch_all(MYSQLI_ASSOC);
+        //$datos = $rs->fetch_all(MYSQLI_ASSOC);
+        $datos = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $datos;
 
     }
@@ -229,9 +233,18 @@ $this->id_ponente = $id_ponente;
      * @return  self
      */ 
     public function readOne($id_ponente){
-        $sql="SELECT p.id_ponente,concat(p.nombre,' ',p.primer_apellido) as nombre,t.tipo,p.fotografia from ponente p inner join tipo t on p.id_tipo=t.id_tipo where p.id_ponente = ".$id_ponente;
-        $rs=$this->query($sql);
-        $datos= $rs-> fetch_all(MYSQLI_ASSOC);
+        $this->connect();
+        $sql="SELECT *,p.id_ponente,concat(p.nombre,' ',p.primer_apellido) as nombre_completo,t.tipo,p.fotografia from ponente p inner join tipo t on p.id_tipo=t.id_tipo where p.id_ponente = :id_ponente";
+        
+        $stmt=$this->con->prepare($sql);
+        $stmt->bindParam(':id_ponente',$id_ponente,PDO::PARAM_INT);
+
+        $stmt->execute();
+
+
+        
+        $datos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $datos = $datos[0];
         return $datos;
     }
 
@@ -241,36 +254,65 @@ $this->id_ponente = $id_ponente;
      * @return  boolean
      */ 
     public function create($datos){
-        $sql = "INSERT into ponente (nombre,primer_apellido,segundo_apellido,tratamiento,correo,resumen,id_tipo) values ('".$datos['nombre']."','".$datos['primer_apellido']."','".$datos['segundo_apellido']."','".$datos['tratamiento']."','".$datos['correo']."','".$datos['resumen']."',".$datos['id_tipo'].")";
-       $rs = $this->query($sql);
-
+        $this->connect();
+        $archivo = $this->cargarImagen("fotografia","image/ponentes/");
+        $sql="INSERT into ponente (nombre,primer_apellido,segundo_apellido,tratamiento,correo,resumen,id_tipo) values (:nombre,:primer_apellido,:segundo_apellido,:tratamiento,:correo,:resumen,:id_tipo)";
+        $stmt=$this->con->prepare($sql);
+        $stmt->bindParam(':id_tipo',$datos['id_tipo'],PDO::PARAM_INT);
+        $stmt->bindParam(':nombre',$datos['nombre'],PDO::PARAM_STR);
+        $stmt->bindParam(':primer_apellido',$datos['primer_apellido'],PDO::PARAM_STR);
+        $stmt->bindParam(':segundo_apellido',$datos['segundo_apellido'],PDO::PARAM_STR);
+        $stmt->bindParam(':tratamiento',$datos['tratamiento'],PDO::PARAM_STR);
+        $stmt->bindParam(':correo',$datos['correo'],PDO::PARAM_STR);
+        $stmt->bindParam(':resumen',$datos['resumen'],PDO::PARAM_STR);
+        $rs = $stmt->execute();
         return $rs;
-    }
+}
     
     /**
      * Modificar los datos de un poenente
      *
      * @return  boolean
      */ 
-    public function update(){
+    public function update($datos,$id_ponente){
+        $this->connect();
 
-    }
+        $sql="UPDATE ponente set nombre=:nombre ,primer_apellido=:primer_apellido ,segundo_apellido=:segundo_apellido ,
+                                  tratamiento=:tratamiento ,correo=:correo ,resumen=:resumen ,id_tipo=:id_tipo
+                                  where id_ponente=:id_ponente";
+        $stmt=$this->con->prepare($sql);
+        $stmt->bindParam(':nombre',$datos['nombre'],PDO::PARAM_STR);
+        $stmt->bindParam(':primer_apellido',$datos['primer_apellido'],PDO::PARAM_STR);
+        $stmt->bindParam(':segundo_apellido',$datos['segundo_apellido'],PDO::PARAM_STR);
+        $stmt->bindParam(':tratamiento',$datos['tratamiento'],PDO::PARAM_STR);
+        $stmt->bindParam(':correo',$datos['correo'],PDO::PARAM_STR);
+        $stmt->bindParam(':resumen',$datos['resumen'],PDO::PARAM_STR);
+        $stmt->bindParam(':id_tipo',$datos['id_tipo'],PDO::PARAM_INT);
+        $stmt->bindParam(':id_ponente',$id_ponente,PDO::PARAM_INT);
+        //die($sql);
 
+        $rs = $stmt->execute();
+      
+        return $rs;
+        // print_r ($rs);
+         //die();
+
+
+}
     /**
      * Eliminar un ponente
      *
      * @return  boolean
      */ 
     public function delete($id_ponente){
-        $sql = "delete from ";
-        $rs = $this->query($sql);
- 
-         return $rs;
-    }
+        $this->connect();
+        $sql = "delete from ponente where id_ponente=:id_ponente";
+        $stmt=$this->con->prepare($sql);
+        $stmt->bindParam(':id_ponente',$id_ponente,PDO::PARAM_INT);
+        $rs = $stmt->execute();
+        return $rs;
+}
 
 }
 
 $ponente = new Ponente;
-
-
-?>
