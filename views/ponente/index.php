@@ -15,18 +15,17 @@
 <body>
   <h1>Ponentes</h1>
   <a href="ponente.php?accion=new" class="btn btn-primary">Añadir Ponente</a>
-  <table class="table">
-    <thead>
+  <table class="table" >
+    <thead >
       <tr>
         <th scope="col">#</th>
         <th scope="col">Fotografia</th>
         <th scope="col">Nombre</th>
         <th scope="col">Tipo</th>
         <th scope="col">Editar</th>
-
       </tr>
     </thead>
-    <tbody>
+    <tbody >
       <?php
       foreach ($datos as $key => $dato) :
       ?>
@@ -34,7 +33,7 @@
           <th scope="row"><?php echo $dato['id_ponente'] ?></th>
           <td>
             <div class="text-center">
-              <img src="image/<?php echo $dato['fotografia'] ?>" class="rounded-circle" width="100" height="110">
+              <img src="image/ponentes/<?php echo $dato['fotografia'] ?>" class="rounded-circle" width="100" height="110">
             </div>
           </td>
           <td><?php echo $dato['nombre'] ?></td>

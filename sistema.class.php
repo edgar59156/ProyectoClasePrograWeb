@@ -19,13 +19,23 @@ class Sistema{
         $rs = $this->con->query($sql);
         return $rs;
     }
-    public function cargarImagen($dimension,$destino)
-    {
-        if(move_uploaded_file($_FILES[$dimension]['tmp_name'],$destino.$_FILES[$dimension]['name']))
-        {
-            return $_FILES[$dimension]['name'];
+    public function cargarImagen($dimension,$destino){
+        if($_FILES[$dimension]['error']==0){
+            $tiposPermitidos=array("image/gif","image/jpeg","image/png");
+            if(in_array($_FILES[$dimension]['type'],$tiposPermitidos)){
+                if ($_FILES[$dimension]['size']<=512000) {
+                    $nombre=md5(time());
+                    $extension=explode("/",$_FILES[$dimension]['type']);
+                    $nombre=$nombre.".".$extension[1];
+                    $destino=$destino.$nombre;
+                    if(move_uploaded_file($_FILES[$dimension]['tmp_name'],$destino)){
+                        return $nombre;
+                    }
+                }
+
+            }
         }
         return null;
+
     }
-  }
-?>
+}

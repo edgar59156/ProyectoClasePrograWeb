@@ -36,7 +36,7 @@ switch ($accion) {
     case 'update':
         $datos = $_POST;
         $resultado = $ponente->update($datos, $id_ponente);
-       // echo $resultado;
+        // echo $resultado;
 
 
         break;
@@ -46,7 +46,7 @@ switch ($accion) {
 
     case 'delete':
         $resultado = $ponente->delete($id_ponente);
-      //  echo $resultado;
+        //  echo $resultado;
 
 
 

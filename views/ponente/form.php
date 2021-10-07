@@ -1,3 +1,5 @@
+
+
 <?php if (isset($id_ponente)) : ?>
     <h1>Modificar Ponente</h1>
 <?php else : ?>
@@ -6,7 +8,7 @@
 
 
 
-<form method="POST" action="ponente.php?accion=<?php echo (isset($id_ponente)) ? "update&id_ponente=" . $id_ponente : "add"; ?>" enctype='multipart/form-data'>
+<form style="padding: 2%;" method="POST" action="ponente.php?accion=<?php echo (isset($id_ponente)) ? "update&id_ponente=" . $id_ponente : "add"; ?>" enctype='multipart/form-data' >
     <div class="row">
         <div class="col">
             <input type="text" class="form-control" placeholder="Nombre" name="nombre" value="<?php echo (isset($id_ponente)) ? $datos['nombre'] : "" ?>">
@@ -27,8 +29,13 @@
         <input type="email" class="form-control" id="inputEmail4" placeholder="Email" name="correo" value="<?php echo (isset($id_ponente)) ? $datos['correo'] : "" ?>">
     </div>
     <div class="form-group">
-        <label for="exampleFormControlFile1">Imagen</label>
+        <div>
+        <label for="exampleFormControlFile1">Imagen</label>   
+        </div>
+        <div>
         <input type="file" class="form-control-file" id="exampleFormControlFile1" name="fotografia">
+        </div>
+        
     </div>
     <div class="form-group">
         <label for="exampleFormControlTextarea1">Info</label>

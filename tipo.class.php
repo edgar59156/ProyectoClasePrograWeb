@@ -49,4 +49,3 @@ class Tipo extends Sistema{
     }
 }
 $tipo = new Tipo;
-?>
