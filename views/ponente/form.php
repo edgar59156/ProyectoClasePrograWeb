@@ -1,10 +1,16 @@
 
 
-<?php if (isset($id_ponente)) : ?>
-    <h1>Modificar Ponente</h1>
-<?php else : ?>
-    <h1>Nuevo Ponente</h1>
-<?php endif ?>
+<h1><?php echo(isset($id_ponente))?"Modificar":"Nuevo"; ?> Ponente</h1>
+<?php 
+if(isset($id_ponente)){
+    ?>
+        <div class="text-center">
+            <img src="image/ponentes/<?php echo $datos['fotografia']; ?>" class="rounded-circle" width="200" height="210" alt="...">
+        </div>
+    <?php
+}
+?>
+
 
 
 

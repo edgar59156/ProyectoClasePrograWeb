@@ -5,7 +5,6 @@ class Tipo extends Sistema{
         $this->connect();
         $sql = "SELECT * from tipo;";
         $stmt=$this->con->prepare($sql);
-
         $stmt->execute();
         $datos = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $datos;

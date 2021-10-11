@@ -204,9 +204,6 @@ class Ponente extends Sistema
         $sql = "SELECT p.id_ponente,concat(p.nombre,' ',p.primer_apellido) as nombre,t.tipo,p.fotografia from ponente p inner join tipo t on p.id_tipo=t.id_tipo;";
         $stmt = $this->con->prepare($sql);
         $stmt->execute();
-        //$rs = $this->query($sql);
-
-        //$datos = $rs->fetch_all(MYSQLI_ASSOC);
         $datos = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $datos;
     }
@@ -220,16 +217,11 @@ class Ponente extends Sistema
     {
         $this->connect();
         $sql = "SELECT *,p.id_ponente,concat(p.nombre,' ',p.primer_apellido) as nombre_completo,t.tipo,p.fotografia from ponente p inner join tipo t on p.id_tipo=t.id_tipo where p.id_ponente = :id_ponente";
-
         $stmt = $this->con->prepare($sql);
         $stmt->bindParam(':id_ponente', $id_ponente, PDO::PARAM_INT);
-
         $stmt->execute();
-
-
-
         $datos = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $datos = $datos[0];
+        $datos=(isset($datos[0]))?$datos[0]:null;
         return $datos;
     }
 
@@ -271,10 +263,17 @@ class Ponente extends Sistema
     public function update($datos, $id_ponente)
     {
         $this->connect();
-
+        $archivo = $this->cargarImagen("fotografia", "image/ponentes/");
+        if (is_null($archivo)) {
         $sql = "UPDATE ponente set nombre=:nombre ,primer_apellido=:primer_apellido ,segundo_apellido=:segundo_apellido ,
                                   tratamiento=:tratamiento ,correo=:correo ,resumen=:resumen ,id_tipo=:id_tipo
                                   where id_ponente=:id_ponente";
+        }else {
+            $sql = "UPDATE ponente set nombre=:nombre ,primer_apellido=:primer_apellido ,segundo_apellido=:segundo_apellido ,
+                                  tratamiento=:tratamiento ,correo=:correo ,resumen=:resumen ,id_tipo=:id_tipo, fotografia=:fotografia
+                                  where id_ponente=:id_ponente";
+        }
+                                  
         $stmt = $this->con->prepare($sql);
         $stmt->bindParam(':nombre', $datos['nombre'], PDO::PARAM_STR);
         $stmt->bindParam(':primer_apellido', $datos['primer_apellido'], PDO::PARAM_STR);
@@ -284,8 +283,10 @@ class Ponente extends Sistema
         $stmt->bindParam(':resumen', $datos['resumen'], PDO::PARAM_STR);
         $stmt->bindParam(':id_tipo', $datos['id_tipo'], PDO::PARAM_INT);
         $stmt->bindParam(':id_ponente', $id_ponente, PDO::PARAM_INT);
-        //die($sql);
-
+        
+        if (!is_null($archivo)) {
+            $stmt->bindParam(':fotografia', $archivo, PDO::PARAM_STR);
+        }
         $rs = $stmt->execute();
 
         return $rs;
@@ -306,8 +307,9 @@ class Ponente extends Sistema
         $stmt = $this->con->prepare($sql);
         $stmt->bindParam(':id_ponente', $id_ponente, PDO::PARAM_INT);
         $rs = $stmt->execute();
-        return $rs;
+        return $stmt->rowCount();
     }
 }
 
 $ponente = new Ponente;
+$ponentes = new Ponente;

@@ -19,7 +19,7 @@
             </div>
             <div class="col" style="align-items: center; padding-top:20px">
                 <ul class="list-group list-group-horizontal">
-                    <li class="list-group-item" ><a href="conferencias.html">Conferencistas</a></li>
+                    <li class="list-group-item" ><a href="conferencistas.html">Conferencistas</a></li>
                     <li class="list-group-item">Programa</li>
                     <li class="list-group-item">Exposición Virtual</li>
                     <li class="list-group-item">Nosotros</li>
