@@ -1,44 +1,6 @@
-<!doctype html>
-<html lang="en">
-<!-- HEADER -->
-
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <link rel="stylesheet" href="main.css">
-    <title>Congreso Virtual</title>
-    <div class="row" style="background-color: white;">
-  
-        <div class="row">
-            <div class="col-6">
-                <img src="image/logo.png" alt="logo.jpg"  />
-            </div>
-            <div class="col" style="align-items: center; padding-top:20px">
-                <ul class="list-group list-group-horizontal">
-                    <li class="list-group-item" ><a href="conferencias.html">Conferencistas</a></li>
-                    <li class="list-group-item">Programa</li>
-                    <li class="list-group-item">Exposición Virtual</li>
-                    <li class="list-group-item">Nosotros</li>
-                    <li class="list-group-item"><a href="contacto.html">Contacto</a></li>
-                </ul>
-            </div>
-        </div>
-    
-  
-
-    </div>
-    <div class="row" style="background-color: orange; height: 15pt;">
-        <p style="text-align: center;">Evento exclusivamente empresarial | 8,9 y 10 de septiembre 2021</p>
-
-    </div>
-</head>
-
-<body>
+    <?php 
+    include('panel/views/headersinmenu.php');
+    ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"></script>
@@ -49,13 +11,13 @@
                     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="image/r1.jpg" class="d-block w-100" alt="...">
+                                <img src="panel/image/r1.jpg" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="image/r2.jpg" class="d-block w-100" alt="...">
+                                <img src="panel/image/r2.jpg" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="image/r3.jpg" class="d-block w-100" alt="...">
+                                <img src="panel/image/r3.jpg" class="d-block w-100" alt="...">
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
@@ -76,7 +38,7 @@
                 <div class="col">
                     <div class="row">
                         <div class="col">
-                            <img src="image/logo2.png" alt="logo.jpg" style="display: block; margin: auto;">
+                            <img src="panel/image/logo2.png" alt="logo.jpg" style="display: block; margin: auto;">
                             <h3 style="color: white; text-align: center;"> La Asociación Mexicana en Dirección de
                                 Recursos Humanos (AMEDIRH)</h1>
                                 <p
@@ -125,29 +87,29 @@
                     <div style="margin-left: 100pt; margin-right: 100pt;margin-top: 10pt;">
                         <div class="row" style="background-color: rgb(250, 246, 246); opacity: 95%;">
                 <div class="col">
-                    <img src="image/p1.png" alt="" width="200px" height="300px" style="position: center; ">
+                    <img src="panel/image/p1.png" alt="" width="200px" height="300px" style="position: center; ">
                     <h2>Persona 1</h2>
                 </div>
                 <div class="col">
-                    <img src="image/p2.png" alt="" width="200px" height="300px" style="position: center; ">
+                    <img src="panel/image/p2.png" alt="" width="200px" height="300px" style="position: center; ">
                     <h2>Persona 2</h2>
                 </div>
                 <div class="col">
-                    <img src="image/p3.png" alt="" width="200px" height="300px" style="position: center;">
+                    <img src="panel/image/p3.png" alt="" width="200px" height="300px" style="position: center;">
                     <h2>Persona 3</h2>
                 </div>
             </div>
                 <div class="row" style="background-color: rgb(250, 246, 246); opacity: 95%;">
                     <div class="col">
-                        <img src="image/p3.png" alt="" width="200px" height="300px" style="position: center; ">
+                        <img src="panel/image/p3.png" alt="" width="200px" height="300px" style="position: center; ">
                         <h2>Persona 4</h2>
                     </div>
                     <div class="col">
-                        <img src="image/p2.png" alt="" width="200px" height="300px" style="position: center; ">
+                        <img src="panel/image/p2.png" alt="" width="200px" height="300px" style="position: center; ">
                         <h2>Persona 5</h2>
                     </div>
                     <div class="col">
-                        <img src="image/p1.png" alt="" width="200px" height="300px" style="position: center;">
+                        <img src="panel/image/p1.png" alt="" width="200px" height="300px" style="position: center;">
                         <h2>Persona 6</h2>
                     </div>
                     
@@ -164,7 +126,7 @@
 <footer style="padding: 10%; background-color: #233b74 ">
     <div class="row">
         <div class="col">
-            <img src="image/logo.svg" alt="">
+            <img src="panel/image/logo.svg" alt="">
         </div>
         <div style="background-color: white; width: 1pt; height: 100px;">
         </div>

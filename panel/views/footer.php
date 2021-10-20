@@ -11,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
     -->
 <!-- FOOTER -->
-<footer style="padding: 2%; background-color: #233b74; opacity: 95%;">
+<!--<footer style="padding: 2%; background-color: #233b74; opacity: 95%;">
   <div class="row">
     <div class="col">
       <img src="image/logo.svg" alt="">
@@ -29,8 +29,9 @@
     <h3 style="text-align: center;">Copyright© 2021 Todos los derechos reservados</h3>
   </div>
 
-</footer>
 
+</footer>
+-->
 </body>
 
 </html>

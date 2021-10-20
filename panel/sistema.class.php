@@ -1,4 +1,5 @@
 <?php
+session_start();
 class Sistema
 {
     public $con;
@@ -54,7 +55,51 @@ class Sistema
              $color = "dark";
              break;
     }
-    include("views/mensaje.php");
+    require_once("views/mensaje.php");
   }
+
+  public function login($correo,$contrasena){
+    $this->connect();
+    
+    if($this->validarCorreo($correo)){
+        $contrasena = md5($contrasena);
+        $sql = "SELECT * FROM usuario where correo=:correo and contrasena=:contrasena";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bindParam(':contrasena', $contrasena, PDO::PARAM_STR);
+        $stmt->bindParam(':correo', $correo, PDO::PARAM_STR);
+        $stmt->execute();
+        $datos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if(isset($datos[0])){
+            return true;
+        }
+        return false;
+    }
+    
+  }
+  public function validarCorreo($correo){
+    if (filter_var($correo, FILTER_VALIDATE_EMAIL)) {
+        return true;
+    }
+    return false;
+  }
+
+ public function logout(){
+     unset($_SESSION);
+     session_destroy();
+ }
+ public function validarRol($rol){
+    $roles=array();
+    if (isset($_SESSION['roles'])) {
+        $roles=$_SESSION['roles'];
+    }
+    if (!in_array($rol,$roles)){
+        require_once('views/header.php');
+        $this->mensaje(0,"Usted no tiene el rol necesario, consulte al administrador");
+        require_once('views/footer.php');
+        die();
+    }
 }
+
+}
+$sistema = new Sistema;
 ?>
