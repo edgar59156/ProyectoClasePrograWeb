@@ -37,10 +37,13 @@ if(isset($id_conferencia)){
         <label for="inputState">Elige Ponente:</label>
         <select id="inputState" class="form-control" name="id_ponente">
             <?php foreach ($datosponentes as $key => $value) :
+            
                 $selected = "";
+                if(isset($datos['id_ponente'])){
                 if ($value['id_ponente'] == $datos['id_ponente']) :
                     $selected = "Selected";
                 endif;
+            }
             ?>
                 <option value="<?php echo $value['id_ponente']; ?>" <?php echo $selected; ?>><?php echo $value['nombre']; ?></option>
 

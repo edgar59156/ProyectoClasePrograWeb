@@ -28,7 +28,7 @@ if(isset($id_ponente)){
     </div>
     <div class="form-group">
         <label for="formGroupExampleInput">Tratamiento</label>
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Subdirector de tal" name="tratamiento" value="<?php echo (isset($id_ponente)) ? $datos['tratamiento'] : "" ?>">
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="tratamiento" name="tratamiento" value="<?php echo (isset($id_ponente)) ? $datos['tratamiento'] : "" ?>">
     </div>
     <div class="form-group">
         <label for="inputEmail4">Correo</label>
@@ -52,14 +52,14 @@ if(isset($id_ponente)){
         <select id="inputState" class="form-control" name="id_tipo">
             <?php foreach ($datostipo as $key => $value) :
                 $selected = "";
+                if(isset($datos['id_tipo'])){
                 if ($value['id_tipo'] == $datos['id_tipo']) :
                     $selected = "Selected";
                 endif;
+            }
             ?>
-
                 <option value="<?php echo $value['id_tipo']; ?>" <?php echo $selected; ?>><?php echo $value['tipo']; ?></option>
-
-            <?php endforeach; ?>
+            <?php  endforeach; ?>
         </select>
     </div>
     <input class="btn btn-success" type="submit" name="Guardar" value="Guardar">

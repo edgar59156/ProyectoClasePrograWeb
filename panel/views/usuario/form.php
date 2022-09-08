@@ -23,8 +23,8 @@
         }
         ?>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="<?php  echo($values['id_rol']); ?>" id="flexCheckDefault" name="roles[]" <?php echo $checked; ?> >
-            <label class="form-check-label" for="flexCheckDefault">
+            <input class="form-check-input" type="checkbox" value="<?php  echo($values['id_rol']); ?>"  name="roles[]" <?php echo $checked; ?> >
+            <label class="form-check-label" >
                 <?php echo($values['rol']) ?> 
             </label>
         </div>

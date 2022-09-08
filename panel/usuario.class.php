@@ -12,9 +12,6 @@ class Usuario extends Sistema
     public $correo;
     public $contrasena;
 
-
-
-
     /**
      * Recuperar un arreglo de ponentes
      *

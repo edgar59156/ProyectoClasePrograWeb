@@ -1,6 +1,6 @@
 <?php
 require_once('inicio.class.php');
-$sistema->validarRol('Usuario');
+$sistema->validarRol('Administrador');
 $accion=NULL;
 require_once('views/header.php');
 

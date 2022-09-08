@@ -1,48 +1,9 @@
-<!doctype html>
-<html lang="en">
-<!-- HEADER -->
-
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <link rel="stylesheet" href="main.css">
-    <title>Congreso Virtual</title>
-    <div class="row" style="background-color: white;">
-  
-        <div class="row">
-            <div class="col-6">
-                <img src="panel/image/logo.png" alt="logo.jpg"  />
-            </div>
-            <div class="col" style="align-items: center; padding-top:20px">
-                <ul class="list-group list-group-horizontal">
-                    <li class="list-group-item" ><a href="conferencias.html">Conferencistas</a></li>
-                    <li class="list-group-item">Programa</li>
-                    <li class="list-group-item">Exposición Virtual</li>
-                    <li class="list-group-item">Nosotros</li>
-                    <li class="list-group-item"><a href="contacto.html">Contacto</a></li>
-                </ul>
-            </div>
-        </div>
-    
-  
-
-    </div>
-    <div class="row" style="background-color: orange; height: 15pt;">
-        <p style="text-align: center;">Evento exclusivamente empresarial | 8,9 y 10 de septiembre 2021</p>
-
-    </div>
-</head>
-
-<body>
--->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-        crossorigin="anonymous"></script>
+    <?php
+    //include($_SERVER['DOCUMENT_ROOT'].'/ProyectoClase/Panel/views/headersinmenu.php');
+    // include($_SERVER['DOCUMENT_ROOT'].'/ProyectoClase/Panel/sistema.class.php');
+    //require_once($_SERVER['DOCUMENT_ROOT'].'/ProyectoClase/Panel/conferencia.class.php')
+    ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <div id="wrapper">
         <div id="container">
             <div class="row">
@@ -50,22 +11,20 @@
                     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="panel/image/r1.jpg" class="d-block w-100" alt="...">
+                                <img src="/ProyectoClase/panel/image/r1.jpg" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="panel/image/r2.jpg" class="d-block w-100" alt="...">
+                                <img src="/ProyectoClase/panel/image/r2.jpg" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="panel/image/r3.jpg" class="d-block w-100" alt="...">
+                                <img src="/ProyectoClase/panel/image/r3.jpg" class="d-block w-100" alt="...">
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                            data-bs-slide="prev">
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                            data-bs-slide="next">
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
@@ -77,11 +36,10 @@
                 <div class="col">
                     <div class="row">
                         <div class="col">
-                            <img src="panel/image/logo2.png" alt="logo.jpg" style="display: block; margin: auto;">
+                            <img src="/ProyectoClase/panel/image/logo2.png" alt="logo.jpg" style="display: block; margin: auto;">
                             <h3 style="color: white; text-align: center;"> La Asociación Mexicana en Dirección de
                                 Recursos Humanos (AMEDIRH)</h1>
-                                <p
-                                    style="color: white; text-align: center; font-size: large; margin-left: 25%; margin-right: 25%;">
+                                <p style="color: white; text-align: center; font-size: large; margin-left: 25%; margin-right: 25%;">
                                     invita a toda la comunidad empresarial del país y América Latina a reflexionar
                                     acerca del indiscutible valor de la Inteligencia Adaptativa y el Coeficiente de
                                     Adaptabilidad (AQ por sus siglas en inglés).
@@ -123,63 +81,61 @@
                     aspectos esenciales que hoy deben formar parte del concepto de Alto Desempeño. Abordaremos el
                     espíritu emprendedor actualmente indispensable de la mano del humanismo digital, la nueva visión
                     sobre la resiliencia y exploraremos a fondo dónde está ubicado hoy día el liderazgo.</p>
-                    <div style="margin-left: 100pt; margin-right: 100pt;margin-top: 10pt;">
-                        <div class="row" style="background-color: rgb(250, 246, 246); opacity: 95%;">
-                <div class="col">
-                    <img src="panel/image/p1.png" alt="" width="200px" height="300px" style="position: center; ">
-                    <h2>Persona 1</h2>
-                </div>
-                <div class="col">
-                    <img src="panel/image/p2.png" alt="" width="200px" height="300px" style="position: center; ">
-                    <h2>Persona 2</h2>
-                </div>
-                <div class="col">
-                    <img src="panel/image/p3.png" alt="" width="200px" height="300px" style="position: center;">
-                    <h2>Persona 3</h2>
-                </div>
-            </div>
-                <div class="row" style="background-color: rgb(250, 246, 246); opacity: 95%;">
-                    <div class="col">
-                        <img src="panel/image/p3.png" alt="" width="200px" height="300px" style="position: center; ">
-                        <h2>Persona 4</h2>
+                <div style="margin-left: 100pt; margin-right: 100pt;margin-top: 10pt;">
+                    <div class="row" style="background-color: rgb(250, 246, 246); opacity: 95%;">
+                        <div class="row">
+                            <?php
+                            foreach ($datos as $key => $dato) :
+                            ?>
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <img class="rounded-circle" width="100" height="110" alt="Bootstrap Thumbnail First" src="/ProyectoClase/panel/image/ponentes/<?php echo $dato['fotografia'] ?>">
+                                        <div class="card-block">
+                                            <h5 class="card-title">
+                                                <?php echo $dato['nombre'] ?>
+                                            </h5>
+                                            <p class="card-text">
+                                                <?php echo $dato['tratamiento'] ?>
+                                            </p>
+                                            <p>
+                                                <a class="btn btn-primary" href="#">Ver más..</a> <a class="btn" href="#">Action</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php
+                            endforeach
+                            ?>
+                        </div>
                     </div>
-                    <div class="col">
-                        <img src="panel/image/p2.png" alt="" width="200px" height="300px" style="position: center; ">
-                        <h2>Persona 5</h2>
-                    </div>
-                    <div class="col">
-                        <img src="panel/image/p1.png" alt="" width="200px" height="300px" style="position: center;">
-                        <h2>Persona 6</h2>
-                    </div>
-                    
+
                 </div>
-            </div>
             </div>
         </div>
     </div>
 
 
 
-</body>
-<!-- FOOTER -->
-<footer style="padding: 10%; background-color: #233b74 ">
-    <div class="row">
-        <div class="col">
-            <img src="panel/image/logo.svg" alt="">
-        </div>
-        <div style="background-color: white; width: 1pt; height: 100px;">
-        </div>
-        
-        <div class="col">
-            <h3>Contactanos</h3>
-            <h3>contacto@gmail.com.mx</h3>
-        </div>
-     
-    </div>
-    <div class="row">
-        <h3 style="text-align: center;">Copyright© 2021 Todos los derechos reservados</h3>
-    </div>
+    </body>
+    <!-- FOOTER -->
+    <footer style="padding: 10%; background-color: #233b74 ">
+        <div class="row">
+            <div class="col">
+                <img src="/ProyectoClase/panel/image/logo.svg" alt="">
+            </div>
+            <div style="background-color: white; width: 1pt; height: 100px;">
+            </div>
 
-</footer>
+            <div class="col">
+                <h3>Contactanos</h3>
+                <h3>contacto@gmail.com.mx</h3>
+            </div>
 
-</html>
+        </div>
+        <div class="row">
+            <h3 style="text-align: center;">Copyright© 2021 Todos los derechos reservados</h3>
+        </div>
+
+    </footer>
+
+    </html>

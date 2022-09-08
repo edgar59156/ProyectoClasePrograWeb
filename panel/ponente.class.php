@@ -201,7 +201,7 @@ class Ponente extends Sistema
     public function read()
     {
         $this->connect();
-        $sql = "SELECT p.id_ponente,concat(p.nombre,' ',p.primer_apellido) as nombre,t.tipo,p.fotografia from ponente p inner join tipo t on p.id_tipo=t.id_tipo;";
+        $sql = "SELECT p.id_ponente,tratamiento,concat(p.nombre,' ',p.primer_apellido) as nombre,t.tipo,p.fotografia from ponente p inner join tipo t on p.id_tipo=t.id_tipo;";
         $stmt = $this->con->prepare($sql);
         $stmt->execute();
         $datos = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -233,7 +233,9 @@ class Ponente extends Sistema
     public function create($datos)
     {
         $this->connect();
+
         $archivo = $this->cargarImagen("fotografia", "image/ponentes/");
+
         if (is_null($archivo)) {
             $sql = "INSERT into ponente (nombre,primer_apellido,segundo_apellido,tratamiento,correo,resumen,id_tipo) values (:nombre,:primer_apellido,:segundo_apellido,:tratamiento,:correo,:resumen,:id_tipo)";
         } else {
@@ -255,10 +257,7 @@ class Ponente extends Sistema
         return $rs;
     }
 
-    /**
-     * Modificar los datos de un poenente
-     *
-     * @return  boolean
+    /** 
      */
     public function update($datos, $id_ponente)
     {

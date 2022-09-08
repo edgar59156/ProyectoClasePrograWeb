@@ -123,6 +123,17 @@ class Conferencia extends Sistema{
         $datos = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $datos;
     }
+
+    public function readEvento($id_evento)
+    {
+        $this->connect();
+        $sql = "SELECT cp.id_evento,c.id_conferencia,c.titulo,cp.fecha,cp.hora_inicio,cp.hora_fin,cp.id_conferencia_programacion ,COUNT(DISTINCT ip.id_participante) as inscritos FROM conferencia_programacion cp JOIN conferencia c on cp.id_conferencia=c.id_conferencia JOIN inscripcion_participante ip on cp.id_conferencia_programacion=ip.id_conferencia_programacion WHERE cp.id_evento=:id_evento;";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bindParam(':id_evento', $id_evento, PDO::PARAM_INT);
+        $stmt->execute();
+        $datos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $datos;
+    }
     /**
      * Recuperar un ponente
      *@integar id_ponente
